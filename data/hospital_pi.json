@@ -1,0 +1,17 @@
+{
+    "okinawa": {
+        "name": "沖縄病院",
+        "path": "/usr/share/nginx/html/linebot/atpop/html/airport02_data.txt",
+        "normal": 50
+    },
+    "otowa": {
+        "name": "音羽病院",
+        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital01.txt",
+        "normal": 35
+    },
+    "sakura": {
+        "name": "桜病院",
+        "path": "/usr/share/nginx/html/linebot/okinawa/macaddr/hospital02-20201216_102502.txt",
+        "normal": 20
+    }
+}

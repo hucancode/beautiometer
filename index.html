@@ -1,0 +1,43 @@
+<html>
+    <head>
+    　　 <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>hucancode's beauti-o-meter</title>
+        <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="gauge.css">
+        <style>
+            @keyframes needle-animation {
+                0% {
+                    transform: rotate(0);
+                }
+                100% {
+                    transform: rotate(95deg);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="title"><h1>Beauti-O-Meter</h1></div>
+            <div class="status-img"><img src="assets/status_2.png" /></div>
+            <div class="status-text"><h3>Tiền mừng<span class="level-2"></h3></div>
+            <div class="description"><h4>cập nhật lần cuối lúc: 8/3/2021</h4></div>
+            <div class="panel">
+                <div class="gauge">
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                    <div class="gauge-step"><div class="icon"></div></div>
+                </div>
+                <div class="gauge-center"></div>
+                <div class="needle-img" style="animation: needle-animation 2s 1;animation-fill-mode: forwards;"></div>
+                <div class="needle-img-root">
+                    <div class="hole"></div>
+                </div>
+            </div>
+        </main>
+        <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
