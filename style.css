@@ -70,7 +70,7 @@ h4
   width: 40vh;
   margin: 0 auto;
 }
-.title, .description, .time-stamp, .vote-button, .status-text, .avatar
+.title, .description, .time-stamp, .vote-button, .status-text, .active-status, .avatar
 {
   display: flex;
   justify-content: center;
@@ -92,10 +92,32 @@ h4
   margin: 0 auto;
   background: white;
 }
+.active-status
+{
+  height: 5vh;
+  width: 40vh;
+  margin: 0 auto;
+  background: rgb(255, 118, 118);
+}
 .status-text span
 {
   font-weight: bold;
   margin: 0 15px;
+}
+.active-status span
+{
+  font-weight: bold;
+  margin: 0 15px;
+}
+.active-status span.active:after
+{
+  content: "Đang hoạt động";
+  color: #70d200;
+}
+.active-status span.inactive:after
+{
+  content: "Đã nghỉ chơi";
+  color: #000000;
 }
 .status-text span.level-0:after
 {
@@ -127,12 +149,20 @@ h4
   width: 40vh;
   height: 12vh;
   margin: 0 auto;
-  border-radius: 9999px;
 }
 .avatar img
 {
   height: 80%;
   margin: 0 5px 0 5px;
+  border-radius: 9999px;
+  
+}
+
+.avatar img.selected
+{
+  border: #0077ff;
+  border-width: 2px;
+  border-style: solid;
 }
 .time-stamp
 {
@@ -142,6 +172,7 @@ h4
 }
 .vote-button
 {
+  display: none;
   position: relative;
   width: 40vh;
   height: 5vh;

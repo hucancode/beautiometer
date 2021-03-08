@@ -37,11 +37,12 @@
         <main>
             <div class="title"><h1>Beauti-O-Meter</h1></div>
             <div class="avatar" id="avatar">
-                <img src="assets/status_4.png" />
-                <img src="assets/status_3.png" />
-                <img src="assets/status_2.png" />
+                <img class="selected" src="assets/status_4.png" onclick="switchCandidate(0);"/>
+                <img src="assets/status_3.png" onclick="switchCandidate(1);"/>
+                <img src="assets/status_2.png" onclick="switchCandidate(2);"/>
             </div>
             <div class="status-text"><h3>Tiền mừng<span id="status-text" class="level-4"></h3></div>
+            <div class="active-status"><h4>Tình trạng: </h4><span id="active-status"></h3></div>
             <div class="description"><h4>cập nhật lần cuối lúc: 8/3/2021</h4></div>
             <div class="panel">
                 <div class="gauge">
@@ -52,7 +53,8 @@
                     <div class="gauge-step"><div class="icon"></div></div>
                 </div>
                 <div class="gauge-center"></div>
-                <div class="needle-img" id="needle-img" style="animation-name: needle-animation-1;"></div>
+                <!-- <div class="needle-img" id="needle-img" style="animation-name: needle-animation-1;"></div> -->
+                <div class="needle-img" id="needle-img"></div>
                 <div class="needle-img-root">
                     <div class="hole"></div>
                 </div>
