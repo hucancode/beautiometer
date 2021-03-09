@@ -6,7 +6,9 @@ var votes = [];
 var vote_values = [];
 var is_vote_form_open = false;
 var client_ip = "";
+var is_power_vote = false;
 var is_submitting_vote = false;
+var pv_register_progress = 0;
 function init()
 {
     // Your web app's Firebase configuration
@@ -160,6 +162,20 @@ function rememberCastedVote(id, candidate_id, vote_value)
     }
 }
 
+function registerPowerVote()
+{
+    pv_register_progress++;
+    const POWER_VOTE_REGISTER_CLICK = 5;
+    if(pv_register_progress >= POWER_VOTE_REGISTER_CLICK)
+    {
+        is_power_vote = true;
+        var title = document.getElementById('title');
+        title.innerHTML = "Bạn là đại cử tri";
+        title.style = "background-color: yellow";
+        var notice = document.getElementById('power-notice');
+        notice.style = "";
+    }
+}
 function vote(score)
 {
     if(is_submitting_vote)
@@ -196,7 +212,7 @@ function submitVote()
     {
         db.collection("votes").add({
             ip: client_ip,
-            power_vote: false,
+            power_vote: is_power_vote,
             rating: current_vote_value,
             vote_for: candidate
         }).then((doc) => {
@@ -208,6 +224,7 @@ function submitVote()
     else
     {
         db.collection('votes').doc(vote_id).set({
+            power_vote: is_power_vote,
             rating: current_vote_value
         }, {
             merge: true 

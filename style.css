@@ -69,6 +69,7 @@ h4
   height: 10vh;
   width: 40vh;
   margin: 0 auto;
+  cursor: grab;
 }
 .title, .description, .time-stamp, .vote-form, .status-text, .active-status, .avatar
 {
@@ -79,12 +80,11 @@ h4
 
 .description
 {
-  height: 4vh;
+  height: 3vh;
   width: 40vh;
   margin: 0 auto;
-  background: lightblue;
+  background: #00c3ff;
   color:white;
-  display:none;
 }
 .status-text
 {
@@ -176,7 +176,7 @@ h4
   position: relative;
   width: 40vh;
   height: 5vh;
-  margin: 0 auto;
+  margin: 1vh auto;
   border-radius: 9999px 9999px 9999px 9999px;
   border-color: #324eb3;
   border-style: solid;
