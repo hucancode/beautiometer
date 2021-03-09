@@ -166,6 +166,10 @@ function vote(score)
     {
         return;
     }
+    if(current_vote_value < 0)
+    {
+        return;
+    }
     var stars = document.getElementById('stars').getElementsByTagName("span");
     current_vote_value = score;
     for (var i in stars)
