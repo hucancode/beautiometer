@@ -137,12 +137,12 @@ h4
 }
 .status-text span.level-3:after
 {
-  content: "10M cho S";
+  content: "10M cho SS";
   color: #DE498E;
 }
 .status-text span.level-4:after
 {
-  content: "20M cho S";
+  content: "20M cho SS";
   color: #E44426;
 }
 .avatar
