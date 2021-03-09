@@ -121,27 +121,27 @@ h4
 }
 .status-text span.level-0:after
 {
-  content: "20M";
+  content: "20M cho B";
   color: #00A5C0;
 }
 .status-text span.level-1:after
 {
-  content: "10M";
+  content: "10M cho B";
   color: #628F40;
 }
 .status-text span.level-2:after
 {
-  content: "500K";
+  content: "500K cho B";
   color: #FFBA1A;
 }
 .status-text span.level-3:after
 {
-  content: "-10M";
+  content: "10M cho S";
   color: #DE498E;
 }
 .status-text span.level-4:after
 {
-  content: "-20M";
+  content: "20M cho S";
   color: #E44426;
 }
 .avatar
