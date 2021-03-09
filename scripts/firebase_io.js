@@ -166,10 +166,6 @@ function vote(score)
     {
         return;
     }
-    if(current_vote_value < 0)
-    {
-        return;
-    }
     var stars = document.getElementById('stars').getElementsByTagName("span");
     current_vote_value = score;
     for (var i in stars)
@@ -186,6 +182,10 @@ function submitVote()
         return;
     }
     if(is_submitting_vote)
+    {
+        return;
+    }
+    if(current_vote_value < 0)
     {
         return;
     }
