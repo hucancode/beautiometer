@@ -39,7 +39,6 @@ function fetchCandidates()
             console.log("candidates.length "+candidates.length);
             var data = doc.data();
             console.log(`${doc.id} => ${data.avatar}, ${data.started_date}, ${data.rejected_date}`);
-            
             var avatar = avatars[i];
             avatar.src = data.avatar;
             if(data.rejected_date < Date.now())
@@ -55,6 +54,21 @@ function fetchCandidates()
     });
 }
 
+function updateAvatarFrame()
+{
+    var avatars = document.getElementById("avatar").getElementsByTagName("img");
+    for (var i in avatars)
+    {
+        avatars[i].classList = i==current_candidate?["selected"]:[];
+    }
+}
+function updateRelationship()
+{
+    const data = candidates[current_candidate].data;
+    var active_status = document.getElementById('relationship');
+    const rejected = data.rejected_date.toDate() < Date.now();
+    active_status.classList = rejected?["inactive"]:["active"];
+}
 function fetchVotes()
 {
     if(current_candidate == -1 || client_ip == "")
@@ -63,8 +77,9 @@ function fetchVotes()
         return;
     }
     console.log(`fetch vote for /candidates/${candidates[current_candidate].id}`);
+    
     var db = firebase.firestore();
-    const candidate = candidates[current_candidate];
+    const candidate = db.collection('candidates').doc(candidates[current_candidate].id);
     var query = db.collection("votes").where("vote_for", "==", candidate);
     var needle = document.getElementById('needle-img');
     needle.style.animationName = 'needle-animation';
@@ -74,7 +89,7 @@ function fetchVotes()
         var power_avg = 0;
         var power_count = 0;
         snapshot.forEach((doc) => {
-            var data = doc.data();
+            const data = doc.data();
             if(data.ip == client_ip)
             {
                 rememberCastedVote(doc.id, data.vote_for.id, data.rating);
@@ -117,15 +132,7 @@ function fetchVotes()
         }
         var needle = document.getElementById('needle-img');
         needle.style.animationName = 'needle-animation-'+current_candidate;
-        var avatars = document.getElementById("avatar").getElementsByTagName("img");
-        for (var i in avatars)
-        {
-            avatars[i].classList = i==current_candidate?["selected"]:[];
-        }
-        var active_status = document.getElementById('relationship');
-        const rejected = candidate.data.rejected_date.toDate() < Date.now();
-        console.log("doc.data().rejected_date "+candidate.data.rejected_date);
-        active_status.classList = rejected?["inactive"]:["active"];
+        
     }).catch((error) => {
         console.error("Error while fetching votes: ", error);
     });
@@ -143,6 +150,8 @@ function switchCandidate(index)
     }
     current_candidate = index;
     fetchVotes();
+    updateAvatarFrame();
+    updateRelationship();
 }
 
 function onIPReady(json)
