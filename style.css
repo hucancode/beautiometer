@@ -112,12 +112,12 @@ h4
 }
 .relationship span.active:after
 {
-  content: "Còn điện";
+  content: "Online";
   color: #70d200;
 }
 .relationship span.inactive:after
 {
-  content: "Tắt điện";
+  content: "Offline";
   color: #000000;
 }
 .status-text span.level-0:after
